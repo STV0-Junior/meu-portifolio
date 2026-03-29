@@ -1070,6 +1070,200 @@ background: rgba(77, 171, 247, 0.15);
 
 
 /*-----------------------------------------------------------------------------------*/
+/* Estilos para a seção de experiência  */
+/* ========== SEÇÃO EXPERIÊNCIAS ========== */
+.experiencias-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.experiencias-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.experiencias-titulo::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 15px auto 0;
+}
+
+.experiencias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards de experiência - igual aos cards de projeto/formação */
+.experiencia-card {
+  background: var(--nav-bg);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.experiencia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho do card */
+.experiencia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.8rem;
+}
+
+.experiencia-header h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Tags (Freelancer / Trabalho Fixo) - estilo unificado */
+.experiencia-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-tag {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.exp-tag:hover {
+  background: rgba(0, 102, 204, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Empresa e período */
+.experiencia-empresa,
+.experiencia-periodo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  margin: 0.6rem 0;
+  color: #666;
+}
+
+.experiencia-empresa i,
+.experiencia-periodo i {
+  width: 1.2rem;
+  color: var(--primary-color);
+}
+
+/* Descrição */
+.experiencia-descricao {
+  margin: 1rem 0;
+  line-height: 1.5;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+/* Tecnologias (badges) */
+.experiencia-tech {
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(0, 102, 204, 0.15);
+  padding-top: 1rem;
+}
+
+.experiencia-tech strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Reutiliza o estilo de badge que você já tem nos projetos */
+.experiencia-tech .tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experiencia-tech .tech-badge {
+  background: rgba(0, 102, 204, 0.1);
+  border-radius: 20px;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  transition: all 0.2s ease;
+}
+
+.experiencia-tech .tech-badge:hover {
+  background: rgba(0, 102, 204, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Dark Mode - consistente com o resto */
+[data-theme="dark"] .experiencia-card {
+  background: var(--nav-bg);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .experiencia-empresa,
+[data-theme="dark"] .experiencia-periodo {
+  color: #aaa;
+}
+
+[data-theme="dark"] .experiencia-tech .tech-badge {
+  background: rgba(77, 171, 247, 0.15);
+}
+
+[data-theme="dark"] .experiencia-tech .tech-badge:hover {
+  background: rgba(77, 171, 247, 0.25);
+}
+
+/* Responsividade igual à dos projetos */
+@media (max-width: 768px) {
+  .experiencias-content {
+    padding: 1rem;
+  }
+
+  .experiencias-titulo {
+    font-size: 2rem;
+  }
+
+  .experiencias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experiencia-header {
+    flex-direction: column;
+  }
+
+  .experiencia-header h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
+/*-----------------------------------------------------------------------------------*/
 
 
 
