@@ -499,26 +499,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-//animação
-
-document.addEventListener('DOMContentLoaded', () => {
-    const balao = document.querySelector('.balao-contato');
-    
-    function animateEmoji() {
-        // Adiciona classe com a animação
-        balao.classList.add('emoji-shaking');
-        
-        setTimeout(() => {
-            // Remove a animação após 2s
-            balao.classList.remove('emoji-shaking');
-            
-            // Espera 8s e repete
-            setTimeout(animateEmoji, 8000);
-        }, 5000);
-    }
-    
-    // Inicia após 1s (opcional)
-    setTimeout(animateEmoji, 1000);
-});
-
 
