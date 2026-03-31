@@ -382,8 +382,43 @@ color: var(--text-color, #555);
 max-width: 800px;
 margin: 0 auto;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Botões de currículo */
+.resume-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
 
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
 
+.btn-resume:hover {
+  transform: translateY(-3px);
+  background: #0052a3; /* tom mais escuro da cor primária */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode */
+[data-theme="dark"] .btn-resume {
+  background: #4dabf7;
+}
+[data-theme="dark"] .btn-resume:hover {
+  background: #3b8fd9;
+}
 /*-----------------------------------------------------------------------------------*/
 
 /* Seção Diferencial */
@@ -1840,4 +1875,65 @@ body {
 
 
 
-    
+    /* ========== FOOTER ========== */
+.footer {
+  background-color: var(--nav-bg);
+  border-top: 1px solid rgba(0, 102, 204, 0.2);
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-copyright p {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.1);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  background: rgba(0, 102, 204, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}

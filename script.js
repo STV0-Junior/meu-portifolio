@@ -7,10 +7,10 @@ const i18nextConfig = {
     pt: {
         translation: {
             // Seção Início
+            // Seção Início
             "ola_eu_sou": "OLÁ, EU SOU ESTEVÃO JUNIOR",
-            "desenvolvedor_full_stack": "Desenvolvedor Full-Stack",
-            "descricao_sobre_mim": "Desenvolvedor Full Stack com projeto premiado em tecnologia embarcada. Especializado em conectar o mundo físico ao digital através de sistemas embarcados e desenvolvimento web full-stack. Sempre em busca de novos desafios e oportunidades para criar soluções inovadoras. Além de desenvolver automações em python para preenchimento de planilhas.",
-            
+            "desenvolvedor_full_stack": "Engenheiro de Computação | Full-Stack & Embarcados",
+            "descricao_sobre_mim": "Especialista em unir hardware e software com projetos premiados em IoT. Desenvolvo desde sistemas embarcados (Arduino, C/C++) até automações em Python e aplicações web completas. Conecto o mundo físico ao digital para criar soluções inovadoras e escaláveis.",
             // Seção Diferencial
             "meu_diferencial": "Meu diferencial:",
             "texto_diferencial": "Ponte entre Hardware e Software com visão integrada de sistemas. Combino expertise em tecnologia embarcada (com projeto premiado em IoT) com desenvolvimento full-stack para criar soluções completas. Com foco em otimização de performance desde o circuito até a interface do usuário, com foco em sustentabilidade e escalabilidade. Além de alto conhecimento em Hardware.",
@@ -91,11 +91,10 @@ const i18nextConfig = {
     en: {
         translation: {
 
-
             // Seção Início
             "ola_eu_sou": "HELLO, I'M ESTEVÃO JUNIOR",
-            "desenvolvedor_full_stack": "Full-Stack Developer",
-            "descricao_sobre_mim": "Full Stack Developer with an award-winning embedded technology project. Specialized in connecting the physical and digital worlds through embedded systems and full-stack web development. Always looking for new challenges and opportunities to create innovative solutions. Also develops Python automations for spreadsheet filling.",
+            "desenvolvedor_full_stack": "Computer Engineering | Full-Stack & Embedded",
+            "descricao_sobre_mim": "Specialist in bridging hardware and software with award-winning IoT projects. I develop everything from embedded systems (Arduino, C/C++) to Python automations and full-stack web applications. I connect the physical to the digital to create innovative and scalable solutions.",
             
             // Seção Diferencial
             "meu_diferencial": "My differential:",
@@ -226,25 +225,6 @@ document.querySelector('.translate-toggle').addEventListener('click', () => {
     document.documentElement.lang = newLang;
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
