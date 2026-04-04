@@ -241,8 +241,8 @@ color: var(--primary-color, #ff8707);
 font-weight: 500;
 }
 
-/* Seção Sobre Mim */
 
+/* Seção Sobre Mim */
 
 .sobre-mim p {
 font-size: 1.1rem;
@@ -288,6 +288,9 @@ margin: 0 auto;
 [data-theme="dark"] .btn-resume:hover {
   background: #3b8fd9;
 }
+/*-----------------------------------------------------------------------------------*/
+
+
 /*-----------------------------------------------------------------------------------*/
 
 /* Seção Diferencial */
@@ -1418,25 +1421,6 @@ transform: translateY(-2px);
     grid-template-columns: 1fr;
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* styles.css - Adicione estas regras no final do arquivo */
