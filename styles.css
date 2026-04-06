@@ -374,108 +374,183 @@ opacity: 0.8;
 }
 
 /* Seção Habilidades - Badges em Linha */
+/* ========== SEÇÃO HABILIDADES REFATORADA ========== */
 .habilidades {
-margin: 80px 0;
-padding: 0 20px;
+  margin: 80px 0;
+  padding: 0 20px;
 }
 
 .habilidades h3 {
-font-size: 2.2rem;
-color: var(--primary-color);
-margin-bottom: 50px;
-text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
 }
 
+.habilidades h3::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Grid principal dos stacks */
 .linguagens {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-gap: 40px;
-max-width: 1200px;
-margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Cada stack (Front-end, Back-end, etc.) */
 .stack {
-background: rgba(255, 255, 255, 0.05);
-padding: 30px;
-border-radius: 16px;
-border: 1px solid rgba(0, 102, 204, 0.1);
+  background: var(--nav-bg);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+}
+
+.stack:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
 .stack h4 {
-color: var(--primary-color);
-font-size: 1.5rem;
-margin-bottom: 25px;
-padding-bottom: 12px;
-border-bottom: 2px solid rgba(0, 102, 204, 0.15);
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 102, 204, 0.2);
+  display: inline-block;
 }
 
-/* **NOVO: Badges em Linha (Horizontal) ** */
-.badges-row {
-display: flex;
-flex-wrap: wrap;
-gap: 15px;
-align-items: center;
+/* Grid de badges dentro de cada stack - substitui o badges-row */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
 
+/* Estilo do badge individual */
 .tech-badge {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 12px 20px;
-background: rgba(0, 102, 204, 0.05);
-border-radius: 8px;
-border: 1px solid rgba(0, 102, 204, 0.1);
-transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 102, 204, 0.06);
+  padding: 8px 12px;
+  border-radius: 40px;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  cursor: default;
 }
 
 .tech-badge:hover {
-transform: translateY(-3px);
-background: rgba(0, 102, 204, 0.1);
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  background: rgba(0, 102, 204, 0.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .tech-badge img {
-width: 30px;
-height: 30px;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .tech-badge span {
-font-weight: 500;
-color: var(--text-color);
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .tech-badge em {
-display: block;
-font-size: 0.8rem;
-color: #666;
-font-style: normal;
-margin-top: 4px;
+  font-size: 0.7rem;
+  color: #666;
+  font-style: normal;
+  margin-top: 2px;
 }
 
-/* Dark Mode */
+/* Nível de proficiência (opcional, se adicionar) */
+.tech-level {
+  font-size: 0.65rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 20px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Tema escuro */
+[data-theme="dark"] .stack {
+  background: var(--nav-bg);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
 [data-theme="dark"] .tech-badge {
-background: rgba(255, 255, 255, 0.05);
-border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(77, 171, 247, 0.1);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .tech-badge:hover {
+  background: rgba(77, 171, 247, 0.2);
 }
 
 [data-theme="dark"] .tech-badge em {
-color: #aaa;
+  color: #aaa;
 }
 
-/* Responsividade */
+/* Responsividade para telas pequenas */
 @media (max-width: 768px) {
-.badges-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .habilidades h3 {
+    font-size: 1.8rem;
+  }
+
+  .linguagens {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stack {
+    padding: 1.2rem;
+  }
+
+  .badges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .tech-badge {
+    padding: 6px 10px;
+  }
+
+  .tech-badge img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tech-badge span {
+    font-size: 0.85rem;
+  }
 }
 
-.tech-badge {
-    width: 100%;
+@media (max-width: 480px) {
+  .badges-grid {
+    grid-template-columns: 1fr 1fr; /* força duas colunas em telas muito pequenas */
+  }
 }
-}
 
 
-
+/*-----------------------------------------------------------------------------------*/
 #conteudo-principal,
 #projetos {
 transition: opacity 0.5s ease, transform 0.5s ease;
