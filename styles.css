@@ -1780,3 +1780,27 @@ body {
     justify-content: center;
   }
 }
+
+
+
+
+/* contador de visitas*/
+.footer-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 102, 204, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+}
+
+.footer-counter i {
+  color: var(--primary-color);
+}
+
+#visit-counter {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
