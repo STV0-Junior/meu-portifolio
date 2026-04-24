@@ -170,7 +170,10 @@ const i18nextConfig = {
 
             // Dentro do objeto de tradução en
             "contato_titulo": "CONTACT ME",
-            "contato_texto": "I'm open to new opportunities and collaborations. Feel free to contact me through the channels below:"
+            "contato_texto": "I'm open to new opportunities and collaborations. Feel free to contact me through the channels below:",
+        
+            // 🔽 NOVA CHAVE ADICIONADA PARA O CONTADOR DE VISITAS (EN)
+            "Total de visitas": "Total visits"
         }
     }
 }
