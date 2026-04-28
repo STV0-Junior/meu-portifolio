@@ -502,3 +502,287 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 
+
+
+
+
+
+// ========== CHATBOT COM FAQ CORRIGIDO ==========
+// Objeto FAQ global (para ser acessado pelas funções)
+const faqBot = {
+  pt: {
+    nome: "Meu nome é Estevão M. Junior, tenho 25 anos.",
+    idade: "Tenho 25 anos.",
+    profissao: "Sou Engenheiro de Computação (em formação) e Desenvolvedor Full-Stack, com foco em IoT e sistemas embarcados.",
+    tecnologias: "Trabalho com: HTML5, CSS3, JavaScript, PHP, Python, C, Flutter, MySQL/PostgreSQL, Arduino.",
+    experiencia: "Trabalho como freelancer desde 2022. Principais projetos: loja infantil Dicazo (e-commerce completo) e site para empresa de conserto de eletrodomésticos (catálogo, avaliações e localização).",
+    site_assistencia: "O site para assistência técnica foi desenvolvido para uma empresa de conserto de máquinas de lavar e eletrodomésticos. O objetivo era centralizar todas as informações em um só lugar. Principais funcionalidades: catálogo de serviços, avaliações de clientes, localização da empresa via Google Maps, formulário de contato e orçamento rápido. Tecnologias: HTML5, CSS3, JavaScript, PHP (para envio de formulários) e integração com APIs de geolocalização.",
+    dicazo_detalhes: "A Dicazo é um e-commerce de roupas infantis completo. Funcionalidades: gerenciamento de produtos com categorias, upload de imagens drag-and-drop, controle de estoque por tamanhos (só permite comprar se houver no banco), carrinho de compras com sessões criptografadas, painel administrativo para adicionar/editar/excluir produtos, exportação de dados para CSV, proteção contra SQL injection e XSS. Tecnologias: PHP, MySQL, JavaScript, HTML5, CSS3.",
+    agua_express: "Água Express é um sistema inteligente de pedidos de garrafões de água. Funcionalidades: formulário interativo com validação em tempo real, calculadora automática de preço (R$ 5,00 por garrafão), integração com pagamento via PIX, envio automático do pedido pelo WhatsApp, efeito de digitação para demonstração e transições fluidas. Tecnologias: HTML5, CSS3, JavaScript, WhatsApp API, UI/UX Design.",
+    pizzaria_deep: "Pizzaria Deep é um sistema de pedidos online para pizzaria, atualmente em desenvolvimento. Funcionalidades: tela de boas-vindas animada com loader personalizado, carrossel de promoções, categorias interativas, sistema de busca com sugestões, carrinho funcional e design responsivo. Tecnologias: HTML5, CSS3, JavaScript, CSS Grid, Flexbox.",
+    conversor_moedas: "Conversor de Moedas Inteligente permite conversão entre mais de 20 moedas internacionais com taxas atualizadas em tempo real via API. Funcionalidades: interface intuitiva, autocompletar para seleção de moedas, validação automática, animações fluidas e design responsivo. Tecnologias: HTML5, CSS3, JavaScript, ExchangeRate-API.",
+    fileorganizer: "FileOrganizer é uma ferramenta desktop para organização automática de arquivos. Funcionalidades: interface amigável com seleção de pasta, organização por tipo de arquivo (imagens, vídeos, documentos, etc.), suporte a 10+ categorias, prevenção de sobrescrita. Tecnologias: Python, Tkinter, PyInstaller, sistema de arquivos.",
+    calculadora_3d: "Calculadora 3D é uma ferramenta para precificação de impressões 3D. Funcionalidades: cálculo baseado em tempo (horas/minutos), material (kg) e margem de lucro, conversão automática, histórico completo de cálculos, configurações personalizáveis de custos. Tecnologias: Python, Tkinter, JSON, PyInstaller.",
+    hydroguard: "HydroGuard é meu projeto de IoT premiado (Melhor Projeto de Sustentabilidade em Hardware). Funcionalidades: monitoramento em tempo real de vazão e consumo, detecção proativa de vazamentos com 95% de precisão, dualidade de interfaces (LCD + Serial), simulação adaptável de cenários (12h/24h). Impacto: redução de 40% no desperdício de água, autonomia de 72h em bateria 9V, adaptável para múltiplos cenários. Tecnologias: Arduino UNO, C/C++ embarcado, LoRaWAN, sensores de fluxo, ISO 9001.",
+    eletrodomesticos: "Desenvolvi um site para uma empresa de conserto de máquinas de lavar e eletrodomésticos. Ele reúne informações dos serviços, avaliações de clientes, localização da empresa e formulário de contato, tudo em um só lugar.",
+    hydroguard: "HydroGuard é meu projeto de IoT premiado que monitora vazão de água, detecta vazamentos e reduz desperdício em até 40%. Usa Arduino, C++ e LoRaWAN.",
+    jogo: "Meu jogo favorito é a franquia Dark Souls 2 e 3. Adoro desafios e a ambientação sombria.",
+    contato: "Você pode me enviar e-mail para j.estevao.m.junior@gmail.com, WhatsApp (85) 99206-9495 ou pelo LinkedIn/GitHub no rodapé.",
+    curriculo: "Meu currículo está disponível no topo da página, nos botões 'Currículo Português' e 'Resume English'.",
+    projetos: "Meus principais projetos são: HydroGuard (IoT premiado), Dicazo (e-commerce infantil), site para assistência técnica de eletrodomésticos, Água Express (pedidos de água), Pizzaria Deep, Conversor de Moedas, FileOrganizer e Calculadora 3D. Todos estão na seção #projetos.",
+    formacao: "Faço Engenharia de Computação na UNILAB (Universidade da Integração Internacional da Lusofonia Afro-Brasileira) desde 2023. Também sou Técnico em Química e tenho cursos complementares em Nuvem, Negociação, Redes Neurais e Flutter.",
+    unilab: "UNILAB é a Universidade da Integração Internacional da Lusofonia Afro-Brasileira. Lá curso Engenharia de Computação desde 2023."
+  },
+  en: {
+    nome: "My name is Estevão M. Junior, I'm 25 years old.",
+    idade: "I'm 25 years old.",
+    profissao: "I'm a Computer Engineering student (ongoing) and Full-Stack Developer, focusing on IoT and embedded systems.",
+    tecnologias: "I work with: HTML5, CSS3, JavaScript, PHP, Python, C, Flutter, MySQL/PostgreSQL, Arduino.",
+    experiencia: "I've been freelancing since 2022. Main projects: Dicazo kids clothing store (full e-commerce) and website for appliance repair company (catalog, reviews, location).",
+    site_assistencia: "The appliance repair website was developed for a washing machine and appliance repair company. The goal was to centralize all information in one place. Main features: service catalog, customer reviews, company location via Google Maps, contact form, and quick quote. Technologies: HTML5, CSS3, JavaScript, PHP (form handling), and geolocation APIs.",
+    dicazo_detalhes: "Dicazo is a complete kids clothing e-commerce. Features: product management with categories, drag-and-drop image upload, size-based stock control (purchase only if in DB), encrypted session shopping cart, admin panel (add/edit/delete products), CSV export, SQL injection/XSS protection. Technologies: PHP, MySQL, JavaScript, HTML5, CSS3.",
+    agua_express: "Water Express is an intelligent water jug ordering system. Features: interactive form with real-time validation, automatic price calculator ($5.00/jug), PIX payment integration, automatic WhatsApp order sending, auto-typing effect for demos, smooth transitions. Technologies: HTML5, CSS3, JavaScript, WhatsApp API, UI/UX Design.",
+    pizzaria_deep: "Pizzaria Deep is an online pizza ordering system (under development). Features: animated welcome screen with custom loader, promotions carousel, interactive categories, search with suggestions, functional shopping cart, responsive design. Technologies: HTML5, CSS3, JavaScript, CSS Grid, Flexbox.",
+    conversor_moedas: "Smart Currency Converter allows conversion between 20+ international currencies with real-time updated rates via API. Features: intuitive interface, autocomplete for currency selection, automatic validation, smooth animations, responsive design. Technologies: HTML5, CSS3, JavaScript, ExchangeRate-API.",
+    fileorganizer: "FileOrganizer is a desktop tool for automatic file organization. Features: user-friendly folder selection, organization by file type (images, videos, documents, etc.), support for 10+ categories, file overwrite prevention. Technologies: Python, Tkinter, PyInstaller, file system.",
+    calculadora_3d: "3D Calculator is a pricing tool for 3D printing. Features: calculation based on time (hours/minutes), material (kg), profit margin, automatic time conversion, complete calculation history, customizable cost settings. Technologies: Python, Tkinter, JSON, PyInstaller.",
+    hydroguard: "HydroGuard is my award-winning IoT project (Best Sustainability Project in Hardware). Features: real-time flow and consumption monitoring, proactive leak detection (95% accuracy), dual interfaces (LCD + Serial), adaptable scenario simulation (12h/24h). Impact: 40% reduction in water waste, 72h battery autonomy, adaptable to multiple scenarios. Technologies: Arduino UNO, Embedded C/C++, LoRaWAN, flow sensors, ISO 9001.",
+    eletrodomesticos: "I built a website for a washing machine & appliance repair company. It brings together service info, customer reviews, company location, and a contact form in one place.",
+    hydroguard: "HydroGuard is my award-winning IoT project that monitors water flow, detects leaks, and reduces waste by up to 40%. Built with Arduino, C++ and LoRaWAN.",
+    jogo: "My favorite game franchise is Dark Souls 2 and 3. I love challenges and the dark atmosphere.",
+    contato: "You can reach me at j.estevao.m.junior@gmail.com, WhatsApp +55 85 99206-9495, or via LinkedIn/GitHub in the footer.",
+    curriculo: "My resume is available at the top of the page – buttons 'Currículo Português' and 'Resume English'.",
+    projetos: "My main projects are: HydroGuard (award-winning IoT), Dicazo (kids e-commerce), website for appliance repair service, Água Express (water delivery), Pizzaria Deep, Currency Converter, FileOrganizer, and 3D Calculator. All of them are in the #projects section.",
+    formacao: "I'm studying Computer Engineering at UNILAB (University of International Integration of Afro-Brazilian Lusophony) since 2023. Also a Chemistry Technician with extra courses in Cloud, Negotiation, Neural Networks and Flutter.",
+    unilab: "UNILAB is the University of International Integration of Afro-Brazilian Lusophony. I study Computer Engineering there since 2023."
+  }
+};
+
+// Função para remover acentos e normalizar
+function normalizeString(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Palavras-chave (já normalizadas)
+const keywordsBot = {
+  nome: [
+    "nome", "chamar", "qual o seu nome", "seu nome", "teu nome", "quem e voce", "quem é você", "idade",
+    "what is your name", "your name", "who are you", "name"
+  ],
+  idade: [
+    "idade", "quantos anos", "anos", "25 anos",
+    "how old are you", "age", "years old", "what is your age"
+  ],
+  profissao: [
+    "profissao", "trabalha", "o que voce faz", "oque voce faz", "oq voce faz", "o q voce faz", "oq você faz", "sua area", "engenheiro", "desenvolvedor", "o que você faz", "sua profissao", "qual sua profissao", "qual sua profissão",
+    "what do you do", "your job", "profession", "occupation"
+  ],
+  tecnologias: [
+    "tecnologias", "tech", "stack", "linguagens", "ferramentas", "programa", "desenvolvimento", "tecnologia",
+    "technologies", "tech stack", "tools", "programming languages"
+  ],
+  experiencia: [
+    "experiencia", "carreira", "ja trabalhou", "trajetoria", "experiências", "serviços já prestou", "já fez",
+    "experience", "work history", "freelance projects", "what have you done"
+  ],
+  sobre_mim: [
+    "fale sobre voce", "conte mais sobre voce", "quem é voce", "se apresente", "me fale de voce", "resumo", "bio", "biografia",
+    "tell me about yourself", "about you", "introduce yourself", "bio", "who are you"
+  ],
+  hobbies: [
+    "hobby", "hobbies", "gosta de fazer", "tempo livre", "lazer", "diversao", "joga", "videogame",
+    "what do you like to do", "free time", "games", "dark souls"
+  ],
+  soft_skills: [
+    "qualidades", "comportamento", "habilidades sociais", "trabalho em equipe", "comunicacao", "soft skills",
+    "soft skills", "qualities", "teamwork", "communication"
+  ],
+  objetivo: [
+    "objetivo profissional", "plano de carreira", "futuro", "o que quer fazer", "onde se ve", "almeja",
+    "goal", "career goal", "future plans", "what do you want"
+  ],
+  idiomas: [
+    "idiomas", "linguas", "ingles", "fala ingles", "sabe ingles",
+    "languages", "english", "do you speak english"
+  ],
+  localizacao: [
+    "onde mora", "localizacao", "cidade", "estado", "ceara", "brasil",
+    "location", "where do you live", "city", "brazil"
+  ],
+  saudacao: [
+    "oi", "ola", "bom dia", "boa tarde", "e ai", "olá",
+    "hi", "hello", "hey", "good morning", "good afternoon", "good evening", "hola"
+  ],
+  agradecimento: [
+    "obrigado", "valeu", "agradeço",
+    "thank", "thanks", "thx", "awesome", "great", "helpful", "you helped"
+  ],
+  site_assistencia: [
+    "assistencia tecnica", "conserto de maquinas", "maquinas de lavar", "site da empresa", "reparo", "eletrodomesticos", "fale mais sobre o site", "me detalhe o site de assistencia", "conte sobre o site de concerto",
+    "appliance website", "repair site", "washing machine site"
+  ],
+  dicazo_detalhes: [
+    "dicazo", "loja infantil", "roupas infantis", "e-commerce infantil", "fale mais sobre a dicazo", "como funciona a dicazo",
+    "dicazo", "kids ecommerce", "kids store"
+  ],
+  agua_express: [
+    "agua express", "sistema de pedidos de agua", "whatsapp agua", "entrega de agua", "garrafao de agua",
+    "water express", "water delivery", "agua express"
+  ],
+  pizzaria_deep: [
+    "pizzaria", "pizzaria deep", "sistema de pizzaria", "pedidos de pizza",
+    "pizzaria deep", "pizza system", "pizza ordering"
+  ],
+  conversor_moedas: [
+    "conversor de moedas", "conversor", "moedas", "cambio", "taxa de cambio",
+    "currency converter", "converter", "exchange rate"
+  ],
+  fileorganizer: [
+    "fileorganizer", "organizador de arquivos", "organizar arquivos", "limpar pastas",
+    "file organizer", "organize files", "clean folders"
+  ],
+  calculadora_3d: [
+    "calculadora 3d", "impressao 3d", "precificar impressao", "custo de impressao 3d", "calculadora de impressao",
+    "3d calculator", "3d printing cost", "pricing 3d print"
+  ],
+  projetos: [
+    "projetos", "trabalhou", "fez", "desenvolveu", "já fez", "já desenvolveu", "quais projetos", "me fala dos projetos", "quais seus projetos", "projetos que trabalhou", "liste seus projetos", "conte sobre seus projetos", "seus trabalhos",
+    "projects", "portfolio", "what projects", "tell me about your projects"
+  ],
+  dicazo: [
+    "dicazo", "loja infantil", "roupas infantis", "carrinho", "estoque por tamanho",
+    "dicazo", "kids store", "children's clothing", "stock by size"
+  ],
+  eletrodomesticos: [
+    "eletrodomestico", "conserto de maquinas", "maquinas de lavar", "site da empresa", "reparo", "assistencia tecnica",
+    "appliance", "machine repair", "washing machine"
+  ],
+  hydroguard: [
+    "hydroguard", "projeto iot", "monitoramento de agua", "vazamento", "hidraulico", "agua", "hydro guard",
+    "hydroguard", "iot project", "water monitoring", "leak detection"
+  ],
+  jogo: [
+    "jogo", "jogos", "darksouls", "dark souls", "favorito", "video game", "franquia",
+    "game", "games", "dark souls", "favorite game"
+  ],
+  contato: [
+    "contato", "email", "whatsapp", "telefone", "falar com voce", "me ligar", "contatar",
+    "contact", "email", "whatsapp", "phone", "how to reach you"
+  ],
+  curriculo: [
+    "curriculo", "resume", "download", "cv", "baixar curriculo", "currículo",
+    "resume", "cv", "download resume"
+  ],
+  formacao: [
+    "formacao", "faculdade", "estudo", "universidade", "curso", "graduacao", "onde voce estuda", "onde estuda", "onde você estuda", "estuda onde", "unilab",
+    "education", "college", "unilab", "university", "what do you study"
+  ]
+};
+
+function detectLanguage(questionLower) {
+  const enIndicators = [
+    "what", "who", "where", "when", "why", "how", "is", "are", "do", "does",
+    "your", "you", "me", "tell", "about", "project", "technologies", "experience",
+    "work", "freelance", "contact", "email", "resume", "education", "college",
+    "name", "age", "years", "old", "profession", "job", "stack", "tools"
+  ];
+  const ptIndicators = [
+    "o que", "quem", "onde", "quando", "por que", "como", "é", "são", "faz",
+    "seu", "sua", "você", "me", "conte", "sobre", "projeto", "tecnologias", "experiência",
+    "trabalho", "freela", "contato", "email", "currículo", "formação", "faculdade",
+    "nome", "idade", "anos", "profissão", "trabalha", "ferramentas"
+  ];
+
+  let enScore = 0, ptScore = 0;
+  enIndicators.forEach(word => { if (questionLower.includes(word)) enScore++; });
+  ptIndicators.forEach(word => { if (questionLower.includes(word)) ptScore++; });
+
+  return enScore > ptScore ? 'en' : 'pt';
+}
+function initChatbot() {
+  const widget = document.getElementById('chatbot-widget');
+  const toggleBtn = document.getElementById('chat-toggle');
+  const closeBtn = document.querySelector('.chat-close');
+  const sendBtn = document.getElementById('chat-send');
+  const chatInput = document.getElementById('chat-input');
+  const messagesDiv = document.querySelector('.chat-messages');
+
+  if (!widget || !toggleBtn || !closeBtn || !sendBtn || !chatInput || !messagesDiv) return;
+
+  toggleBtn.addEventListener('click', () => {
+    widget.style.display = 'block';
+  });
+  closeBtn.addEventListener('click', () => {
+    widget.style.display = 'none';
+  });
+
+function getBotReply(question) {
+  // Remove pontuação e normaliza
+  let cleanQuestion = question.replace(/[^\w\s]/g, '');
+  let lower = normalizeString(cleanQuestion.toLowerCase().trim());
+
+  // Detecta idioma com base nas palavras da pergunta
+  let lang = detectLanguage(lower);
+
+  const faqLang = faqBot[lang];
+
+  // Verifica palavras-chave (que já estão em PT/EN)
+  for (const [key, words] of Object.entries(keywordsBot)) {
+    for (const word of words) {
+      if (lower.includes(normalizeString(word))) {
+        return faqLang[key] || `[${key}] não definido em ${lang.toUpperCase()}`;
+      }
+    }
+  }
+
+  // Resposta padrão no idioma detectado
+  return lang === 'pt'
+    ? "Ainda não aprendi essa pergunta. Pode perguntar sobre: nome, profissão, tecnologias, experiência, HydroGuard, contato, currículo ou formação."
+    : "I haven't learned that yet. You can ask about: name, profession, tech stack, experience, HydroGuard, contact, resume or education.";
+}
+
+  function addMessage(text, isUser = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = isUser ? 'user-msg' : 'bot-msg';
+    msgDiv.textContent = text;
+    messagesDiv.appendChild(msgDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function handleSend() {
+    const question = chatInput.value.trim();
+    if (!question) return;
+    addMessage(question, true);
+    const reply = getBotReply(question);
+    setTimeout(() => addMessage(reply, false), 300);
+    chatInput.value = '';
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSend();
+  });
+}
+
+// ========== INICIALIZAÇÃO SEGURA ==========
+// Aguarda o i18next carregar antes de iniciar o chat
+if (typeof i18next !== 'undefined') {
+  if (i18next.isInitialized) {
+    initChatbot();
+  } else {
+    // Se ainda não inicializou, aguarda o callback do i18next
+    const originalInit = i18next.init;
+    // Não sobrescreva, apenas adicione um listener
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pequeno delay para garantir que o i18next já foi chamado
+      setTimeout(() => {
+        if (typeof i18next !== 'undefined' && i18next.language) {
+          initChatbot();
+        }
+      }, 300);
+    });
+  }
+} else {
+  // Fallback: inicia depois de carregar a página
+  document.addEventListener('DOMContentLoaded', initChatbot);
+}
