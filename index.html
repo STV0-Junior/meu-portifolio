@@ -2070,19 +2070,41 @@
 <!-- ================= CHATBOT WIDGET ================= -->
 <div id="chatbot-widget" class="chatbot-widget" style="display: none;">
   <div class="chat-header">
-    <span>Olá!</span>
-    <button class="chat-close">✕</button>
+    <div class="chat-header-info">
+      <div class="chat-avatar">
+        <span>EM</span>
+        <span class="chat-status-dot"></span>
+      </div>
+      <div class="chat-header-text">
+        <span class="chat-header-name">Estevão M. Junior</span>
+        <span class="chat-header-sub">Assistente Virtual · Online</span>
+      </div>
+    </div>
+    <button class="chat-close" aria-label="Fechar chat">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
+
   <div class="chat-messages">
-    <div class="bot-msg">Sou um assistende desenvolvido pelo Estevão M. Junior, me pergunte sobre meus projetos</div>
+    <div class="bot-msg">Sou um assistente desenvolvido pelo Estevão M. Junior 👋 Me pergunte sobre projetos, tecnologias ou como contratar!</div>
   </div>
+
   <div class="chat-input-area">
-    <input type="text" id="chat-input" placeholder="Digite sua pergunta...">
-    <button id="chat-send">➤</button>
+    <input type="text" id="chat-input" placeholder="Faça uma pergunta..." autocomplete="off">
+    <button id="chat-send" aria-label="Enviar">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M14 8L2 2l3 6-3 6 12-6z" fill="currentColor"/>
+      </svg>
+    </button>
   </div>
 </div>
-<button id="chat-toggle" class="chat-toggle-btn">
-  <img src="https://img.icons8.com/ios-filled/100/A5fttVWGxaUw/chat--v1.png" alt="Chat">
+
+<button id="chat-toggle" class="chat-toggle-btn" aria-label="Abrir chat">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
 
     <footer class="footer">
